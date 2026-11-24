@@ -216,6 +216,13 @@ def paint_hero(canvas, x0, y0, x1, y1):
     for i in range(9):
         wx = hx0 + 16 + i * 34
         canvas.rectangle([wx, hy0 + 14, wx + 16, hy0 + 34], fill=WINDOW)
+    # Centred door with steps down to the terrace.
+    door_x0 = (hx0 + hx1) // 2 - 12
+    canvas.rectangle([door_x0, hy0 + 30, door_x0 + 24, hy1], fill=NAVY_DARK)
+    for i, sw in enumerate((76, 92, 108)):
+        sy = hy1 + 2 + i * 5
+        canvas.rectangle([(hx0 + hx1) // 2 - sw // 2, sy,
+                          (hx0 + hx1) // 2 + sw // 2, sy + 4], fill=HALL)
     # Sea strip under the sun, with its reflection.
     canvas.rectangle([x0, horizon + 6, x1, y1 - 78], fill=SEA)
     for i, rw in enumerate((150, 110, 70)):
